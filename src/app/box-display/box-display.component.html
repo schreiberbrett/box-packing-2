@@ -1,0 +1,9 @@
+<section [ngStyle]="computeGridStyle()">
+    <ng-container *ngFor="let j of range(box.height)">
+        <ng-container *ngFor="let i of range(box.width)">
+            <div
+                [ngStyle]="computeSquareStyle(box, i, j)"
+            ></div>
+        </ng-container>
+    </ng-container>
+</section>

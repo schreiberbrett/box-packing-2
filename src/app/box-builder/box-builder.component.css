@@ -1,0 +1,16 @@
+section {
+    display: grid;
+}
+
+.square {
+    height: 100%;
+    width: 100%;
+}
+
+.submit {
+    grid-column-start: 1;
+    grid-column-end: -2;
+
+    grid-row-start: -2;
+    grid-row-end: -1;
+}

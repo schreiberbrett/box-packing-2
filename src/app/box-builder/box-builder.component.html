@@ -1,0 +1,68 @@
+<section [ngStyle]="computeGridStyle()">
+    <button
+        class="square"
+        (click)="occupyTopLeft()"
+    ></button>
+
+    <ng-container *ngFor="let i of range(box.width)">
+        <button
+            class="square"
+            (click)="occupyTop(i)"
+        ></button>
+    </ng-container>
+
+    <button
+        class="square"
+        (click)="occupyTopRight()"
+    ></button>
+
+
+    <ng-container *ngFor="let j of range(box.height)">
+        <button
+            class="square"
+            (click)="occupyLeft(j)"
+        ></button>
+
+        <ng-container *ngFor="let i of range(box.width)">
+            <ng-container *ngIf="box.squares[i][j] > 0">
+                <button
+                    class="square"
+                    (click)="unoccupy(i, j)"
+                    [ngStyle]="computeSquareStyle(box, i, j)"
+                ></button>
+            </ng-container>
+            
+            <ng-container *ngIf="box.squares[i][j] === 0">
+                <button
+                    class="square"
+                    (click)="occupy(i, j)"
+                ></button>
+            </ng-container>
+        </ng-container>
+
+        <button
+            class="square"
+            (click)="occupyRight(j)"
+        ></button>
+    </ng-container>
+
+    <button
+        class="square"
+        (click)="occupyBottomLeft()"
+    ></button>
+
+    <ng-container *ngFor="let i of range(box.width)">
+        <button
+            class="square"
+            (click)="occupyBottom(i)"
+        ></button>
+    </ng-container>
+
+    <button
+        class="square"
+        (click)="occupyBottomRight()"
+    ></button>
+
+    <button class="submit" (click)="boxChange.emit(box)">{{mode}}</button>
+    <button (click)="clear()">Clear</button>
+</section>

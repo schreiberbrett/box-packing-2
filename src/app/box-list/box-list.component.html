@@ -1,0 +1,7 @@
+<table>
+    <tr *ngFor="let box of boxes; let i = index">
+        <td><app-box-display [box]="box"></app-box-display></td>
+        <td><button (click)="edit.emit(i)">Edit</button></td>
+        <td><button (click)="delete.emit(i)">Delete</button></td>
+    </tr>
+</table>
